@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow</title>
+    <meta name="theme-color" content="rgb(0, 119, 182)">
+    <link rel="stylesheet" href="FocusFlow.css">
+    <script defer src="FocusFlow.js"></script>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div id="middle-glow"></div>
+    </div>
+
+    <div id="alert-screen">
+        <div id="alert-popup">
+            <div id="alert-text">Are you sure you would like to delete</div>
+            <div id="alert-name">example: washing the dishes</div>
+            <div id="alert-delete-buttons">
+                <div class="cancel-delete-button">keep</div>
+                <div class="confirm-delete-button">delete</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="header-bar">
+        <div id="title">FocusFlow</div>
+    </div>
+
+    <div id="main-body">
+
+        <div class="focus-creator">
+            <div class="focus-creator-title">Create New Focus</div>
+            <div class="focus-creator-inputs">
+                <label for="focus-name">Focus Name: </label><input type="text" id="focus-name" name="focus-name" placeholder="e.g. Wash the dishes">
+                <label for="focus-date">Date: </label><input type="date" id="focus-date" name="focus-date" placeholder="Select date">
+                <label for="focus-time">Time: </label><input type="time" id="focus-time" name="focus-time" placeholder="Select time">
+                <label for="focus-location">Location: </label><input type="text" id="focus-location" name="focus-location" placeholder="e.g. 30 Whitaker Place">
+                <label for="focus-info">Extra Info: </label><input type="text" id="focus-info" name="focus-info" placeholder="e.g. get the dishes from my room">
+            </div>
+            
+            <div class="add-new-focus-button">Add New Focus</div>
+        </div>
+
+        <div class="focus-list">
+            <!-- Focuses will append here -->
+        </div>
+        
+    </div>
+
+</body>
+</html>

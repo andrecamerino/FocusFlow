@@ -1,0 +1,375 @@
+* {
+    border: 0px dotted red;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --dark-blue: rgb(3, 4, 94);
+    --primary-blue: rgb(0, 119, 182);
+    --secondary-blue: rgb(0, 180, 216);
+    --light-blue: rgb(144, 224, 239);
+    --lighter-blue: rgb(202, 240, 248);
+    --primary-shadow: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--primary-blue), var(--lighter-blue));
+    height: 100%;
+    overflow-x: none;
+    }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#loading-screen {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0, 119, 182);
+    width: 101%;
+    height: 110%;
+    margin: -1vw;
+    z-index: 8;
+}
+
+#middle-glow {
+    position: fixed;
+    height: 34vw;
+    width: 60vw;
+    background-color: var(--lighter-blue);
+    opacity: 0.4;
+    border-radius: 100%;
+    z-index: 7;
+    filter: blur(160px);
+}
+
+#alert-screen {
+    position: fixed;
+    margin: -1vw;
+    height: 101vw;
+    width: 101vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    padding: 1vw;
+    visibility: hidden; /* remember to change back to hidden  */
+}
+
+#alert-popup {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background: #fff;
+    width: 800px;
+    height: 500px;
+    border-radius: 15px;
+    translate: 30vw 16vw;
+    text-align: center;
+    padding: 40px;
+    font-size: 40px;
+    gap: 20px
+}
+
+#alert-text, #alert-name, .cancel-delete-button, .confirm-delete-button {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#alert-text {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#alert-delete-buttons {
+    grid-row: 3; /* This sets the item to span the third row */
+    display: grid; /* This enables grid layout for the buttons */
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    gap: 30px;
+}
+
+.cancel-delete-button, .confirm-delete-button {
+    display: flex;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.cancel-delete-button:hover, .confirm-delete-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.cancel-delete-button {
+    background-color: rgb(0, 119, 182, 0.6);
+}
+
+.confirm-delete-button {
+    background-color: rgba(213, 60, 26, 0.8);
+}
+
+.cancel-delete-button:hover {
+    background-color: rgb(0, 119, 182);
+}
+
+.confirm-delete-button:hover {
+    background-color: rgba(213, 60, 26);
+}
+
+#alert-name {
+    font-weight: bold;
+}
+
+#header-bar {
+    align-items: center;
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+
+#title {
+    color: #FFF;
+    text-align: center;
+    font-size: 88px;
+    font-style: italic;
+    font-weight: 900;
+    z-index: 9;
+    position: relative;
+}
+
+#main-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1;
+    height: max-content;
+}
+
+.focus-creator {
+    position: absolute;
+    width: 35vw;
+    height: max-content;
+    margin-top: 2vw;
+    margin-left: 6%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.focus-creator-title {
+    height: auto;
+    font-size: 64px;
+    color: #000;
+    font-weight: 510;
+    overflow: hidden;
+    margin-bottom: 64px;
+}
+
+.focus-creator {
+    border-radius: 15px;
+    background: #FFF;
+    padding: 80px;
+    box-shadow: var(--primary-shadow);
+}
+
+#focus-name-error {
+    min-height: 34px;
+    font-size: 26px;
+    margin-bottom: 0px;
+}
+
+.focus-creator-inputs {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    font-size: 28px;
+    color: rgb(0, 0, 0, 0.6);
+}
+
+.focus-creator-inputs label {
+    display: flex;
+    align-items: center;
+}
+
+.focus-creator-inputs input {
+    border-radius: 15px;
+    border-color: rgb(0, 0, 0, 0.0);
+    background-color: rgb(0, 0, 0, 0.2);
+    height: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 28px;
+}
+
+::placeholder {
+    color: rgb(0, 0, 0, 0.6)
+}
+
+.add-new-focus-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 114, 170, 0.6);
+    height: 6vw;
+    border-radius: 15px;
+    margin-top: 66px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.add-new-focus-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(10, 114, 170, 1);
+    cursor: pointer;
+}
+
+.add-new-focus-button:active {
+    transform: scale(1.1);
+    transition: transform 0.1s ease;
+    background-color: rgba(10, 114, 170, 0.7);
+}
+
+.focus-list {
+    width: 42vw;
+    /* height: 43vw; */
+    height: 973px;
+    margin-top: calc(2vw - 20px);
+    margin-left: 100%;
+    overflow-x: none;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding-left: 50px;
+}
+
+.focus-list::-webkit-scrollbar {
+    background: rgb(0, 119, 182, 0.3);
+    border-radius: 15px;
+}
+
+.focus-list::-webkit-scrollbar-thumb {
+    background-color: rgb(202, 240, 248, 0.5);
+    border-radius: 15px;
+}
+
+.focus {
+    border-radius: 15px;
+    background: #FFF;
+    margin: 22px 0;
+    padding: 56px;
+    box-shadow: var(--primary-shadow);
+    min-width: 470px;
+    width: 34vw;
+    max-height: 104px; /* Adjust based on default height */
+    overflow: hidden;
+    transition: max-height 0.8s ease, padding 0.5s ease;
+}
+
+.focus:hover {
+    max-height: 500px; /* Adjust based on content */
+    padding: 56px; /* Keep padding consistent on hover */
+}
+
+.focus .extra-info {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.focus:hover .extra-info {
+    opacity: 1;
+    max-height: 200px; /* Adjust based on content */
+}
+
+.focus-title {
+    height: auto;
+    font-size: 40px;
+    color: #000;
+    font-weight: 510;
+    overflow: hidden;
+}
+
+.focus-title {
+    margin-bottom: 5px;
+}
+
+.focus-items-bar {
+    font-size: 20px;
+    color: grey;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Added gap between items */
+}
+
+.date-time-bar {
+    width: 100%; /* Adjust width to full */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Added gap between date and time */
+    color: rgb(0, 0, 0, 0.6)
+}
+
+.location {
+    margin-top: 10px;
+    width: 100%; /* Adjust width to full */
+}
+
+.buttons-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Add edit button back in */
+    gap: 10px;
+    transition: transform 0.25s ease-in-out, background-color 0.5s ease; /* Combine transitions */
+}
+
+.done-button, .edit-button, .bin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    width: auto; 
+    min-height: 55.33px;
+    transition: transform 0.25s ease-in-out;
+    transition: background-color 0.5 ease;
+    color: white;
+    border-radius: 15px;
+}
+
+.done-button {
+    background-color: rgba(29, 196, 57, 0.8);
+}
+
+.edit-button {
+    background-color: rgba(216, 157, 28, 0.8);
+}
+
+.bin-button {
+    background-color: rgba(213, 60, 26, 0.8);
+}
+
+.done-button:hover, .edit-button:hover, .bin-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.done-button:hover {
+    background-color: rgba(29, 196, 57, 1);
+}
+
+.edit-button:hover {
+    background-color: rgba(216, 157, 28, 1);
+}
+
+.bin-button:hover {
+    background-color: rgba(213, 60, 26, 1);
+}
+
+.extra-info {
+    margin-top: 32px;
+    color: black;
+    font-size: 24px;
+}
